@@ -1,0 +1,52 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #222;
+  color: #eee;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+  line-height: 20px;
+}
+
+a, a:visited {
+  color: #f77;
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 2rem;
+  line-height: 2.5rem;
+  margin: 0 0 1rem;
+  text-align: center;
+}
+
+header {
+  height: 1em;
+  background: #722;
+}
+
+section.quote {
+  width: 512px;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+small {
+  color: #aaa;
+  font-size: 0.7rem;
+}
+
+.post-nav {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem auto;
+  font-size: 3em;
+}
+
+footer {
+  text-align: center;
+  font-size: 0.8rem;
+}

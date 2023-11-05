@@ -1,0 +1,25 @@
+---
+layout: default
+---
+<section class="quote">
+  <h1>{{ page.quote_title }}</h1>
+
+  <img src="{{ page.quote_image_url }}" alt="{{page.quote_image_description}}">
+
+  <p>{{ content }}</p>
+
+  <small>{{ page.date | date: "%Y-%m-%d" }}</small>
+
+  <div class="post-nav">
+    <div>
+      {% if page.previous.url %}
+      <a href="{{page.previous.url}}">&larr;</a>
+      {% endif %}
+    </div>
+    <div>
+      {% if page.next.url %}
+      <a href="{{page.next.url}}">&rarr;</a>
+      {% endif %}
+    </div>
+  </div>
+</section>
