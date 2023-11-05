@@ -4,6 +4,7 @@ import functions_framework
 from PIL import Image, ImageDraw, ImageFont
 from io import BytesIO
 import requests
+import json
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 DRY_RUN = os.getenv("DRY_RUN", False)
@@ -33,7 +34,6 @@ def generate_quote():
             "description": "A dry desert with no water in sight",
         }
     else:
-        # TODO
         response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
             messages=[
@@ -42,6 +42,18 @@ def generate_quote():
             ]
         )
         content = response['choices'][0]['message']['content']
+        print('GPT-3 Response:')
+        print(content)
+        try:
+            return json.loads(content)
+        except json.JSONDecodeError:
+            print('Invalid JSON response')
+            print(content)
+            return {
+                "title": "AI Fails You",
+                "quote": "Ask for JSON, get garbage.",
+                "description": "A sad robot with his head hanging down trying to read code.",
+            }
 
 
 def generate_image_background(description):
@@ -49,13 +61,15 @@ def generate_image_background(description):
     if DRY_RUN:
         image_url = f'https://images.unsplash.com/photo-1698778755355-e269c65b5e16?auto=format&fit=crop&q=80&w={IMAGE_WIDTH}&h={IMAGE_HEIGHT}'
     else:
-        # TODO
+        print('Generating image')
         response = openai.Image.create(
             prompt=description,
             n=1,
             size=f'{IMAGE_WIDTH}x{IMAGE_HEIGHT}'
         )
         image_url = response['data'][0]['url']
+        print('Image URL:')
+        print(image_url)
 
     r = requests.get(image_url)
     return Image.open(BytesIO(r.content))
@@ -82,12 +96,12 @@ def build_image(quote_data, background):
     return image
 
 def upload_image(image):
-    if DRY_RUN:
-        filename = "result.jpg"
-        image.save(filename)
-        return filename
-    else:
-        pass
+    # if DRY_RUN:
+    filename = "result.jpg"
+    image.save(filename)
+    return filename
+    # else:
+    #     pass
 
 # Register a CloudEvent function with the Functions Framework
 @functions_framework.cloud_event
@@ -100,7 +114,9 @@ def generate_inspiration(cloud_event):
 
     # Create the inspirational image
     background = generate_image_background(quote_data["description"])
-    image = build_image(quote_data, background)
+
+    # image = build_image(quote_data, background)
+    image = background
 
     # Upload the image
     image_url = upload_image(image)
