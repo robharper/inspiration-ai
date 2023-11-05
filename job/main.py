@@ -1,23 +1,29 @@
 import os
+import json
+from io import BytesIO
+
 import openai
 import functions_framework
 from PIL import Image, ImageDraw, ImageFont
-from io import BytesIO
+from google.cloud.storage import Client
 import requests
-import json
+
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 DRY_RUN = os.getenv("DRY_RUN", False)
+GCP_PROJECT_ID = os.getenv("GCP_PROJECT_ID")
+BUCKET_NAME = os.getenv("IMAGES_BUCKET_NAME")
 
-SYSTEM_PROMPT = '''You are a wise and helpful assistant.
+SYSTEM_PROMPT = """You are a wise and helpful assistant.
 You only respond to inputs in the form of inspirational quotes.
 All responses are comprised of three parts: a title, a quote, and a description.
 The title is one or two words that represent the theme of the quote.
 The quote is a single sentence that is the inspirational quote itself.
 The description describes how the quote would look if it were an image.
-Responses should be formatted as a JSON object with fields for title, quote, and description.'''
+Responses should be formatted as a JSON object with fields for title, quote, and description."""
 
-PROMPT = 'Write an inspirational quote about cats'
+# TODO
+PROMPT = "Write an inspirational quote about cats"
 
 FONT_SIZE = 60
 IMAGE_WIDTH = 512
@@ -41,13 +47,13 @@ def generate_quote():
                 {"role": "user", "content": PROMPT},
             ]
         )
-        content = response['choices'][0]['message']['content']
-        print('GPT-3 Response:')
+        content = response["choices"][0]["message"]["content"]
+        print("GPT-3 Response:")
         print(content)
         try:
             return json.loads(content)
         except json.JSONDecodeError:
-            print('Invalid JSON response')
+            print("Invalid JSON response")
             print(content)
             return {
                 "title": "AI Fails You",
@@ -59,16 +65,16 @@ def generate_quote():
 def generate_image_background(description):
     image_url = None
     if DRY_RUN:
-        image_url = f'https://images.unsplash.com/photo-1698778755355-e269c65b5e16?auto=format&fit=crop&q=80&w={IMAGE_WIDTH}&h={IMAGE_HEIGHT}'
+        image_url = f"https://images.unsplash.com/photo-1698778755355-e269c65b5e16?auto=format&fit=crop&q=80&w={IMAGE_WIDTH}&h={IMAGE_HEIGHT}"
     else:
-        print('Generating image')
+        print("Generating image")
         response = openai.Image.create(
             prompt=description,
             n=1,
-            size=f'{IMAGE_WIDTH}x{IMAGE_HEIGHT}'
+            size=f"{IMAGE_WIDTH}x{IMAGE_HEIGHT}"
         )
-        image_url = response['data'][0]['url']
-        print('Image URL:')
+        image_url = response["data"][0]["url"]
+        print("Image URL:")
         print(image_url)
 
     r = requests.get(image_url)
@@ -79,29 +85,36 @@ def build_image(quote_data, background):
     """
     Embed the quote text onto the background image
     """
-    title, quote = quote_data['title'], quote_data['quote']
+    title, quote = quote_data["title"], quote_data["quote"]
 
     # Extend the background image to create a text area on the right
-    image = Image.new('RGB', (IMAGE_OUT_WIDTH, IMAGE_OUT_HEIGHT))
+    image = Image.new("RGB", (IMAGE_OUT_WIDTH, IMAGE_OUT_HEIGHT))
     image.paste(background, (0, 0, IMAGE_WIDTH, IMAGE_HEIGHT))
 
     font = ImageFont.load_default(FONT_SIZE)
     draw = ImageDraw.Draw(image)
 
     title_size = draw.multiline_textbbox((0,0), title, font=font)
-    quote_size = draw.multiline_textbbox((0,0), quote, font=font, align='center')
+    quote_size = draw.multiline_textbbox((0,0), quote, font=font, align="center")
 
-    draw.text((IMAGE_WIDTH + TEXT_MARGIN + title_size[0]/2, TEXT_MARGIN), quote_data['title'], (255, 255, 255), font=font)
-    draw.text((IMAGE_WIDTH + TEXT_MARGIN, IMAGE_HEIGHT/2), quote_data['quote'], (255, 255, 255), font=font)
+    draw.text((IMAGE_WIDTH + TEXT_MARGIN + title_size[0]/2, TEXT_MARGIN), quote_data["title"], (255, 255, 255), font=font)
+    draw.text((IMAGE_WIDTH + TEXT_MARGIN, IMAGE_HEIGHT/2), quote_data["quote"], (255, 255, 255), font=font)
     return image
 
-def upload_image(image):
-    # if DRY_RUN:
-    filename = "result.jpg"
-    image.save(filename)
-    return filename
-    # else:
-    #     pass
+def upload_image(filename, image):
+    if False: #DRY_RUN:
+        filename = "result.jpg"
+        image.save(filename)
+        return filename
+    else:
+        storage_client = Client(project=GCP_PROJECT_ID)
+        bucket = storage_client.bucket(BUCKET_NAME)
+        blob = bucket.blob(filename)
+
+        image_bytes = BytesIO()
+        image.save(image_bytes, format="jpeg")
+        blob.upload_from_string(image_bytes.getvalue(), content_type="image/jpeg")
+
 
 # Register a CloudEvent function with the Functions Framework
 @functions_framework.cloud_event
@@ -119,7 +132,7 @@ def generate_inspiration(cloud_event):
     image = background
 
     # Upload the image
-    image_url = upload_image(image)
+    image_url = upload_image("test.jpg", image)
 
     # Generate the markdown
 
