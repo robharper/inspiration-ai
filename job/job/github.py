@@ -8,5 +8,5 @@ def upload(gh_token, repo, path, content):
     }
 
     headers = {"Authorization": f"Bearer {gh_token}"}
-    r = requests.put(f"https://api.github.com/repos/{repo}/{path}", headers=headers, json=data)
+    r = requests.put(f"https://api.github.com/repos/{repo}/contents/{path}", headers=headers, json=data)
     r.raise_for_status()
