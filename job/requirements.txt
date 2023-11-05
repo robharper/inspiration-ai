@@ -1,0 +1,4 @@
+functions-framework
+pillow==10.1.0
+openai==0.28.1
+requests==2.27.1
