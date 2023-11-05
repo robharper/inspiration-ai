@@ -5,7 +5,7 @@ def upload_image(project_id, bucket_name, filename, image, dry_run=False):
     """
     Upload an image to GCS
     """
-    if dry_run:
+    if False: #dry_run:
         filename = "result.jpg"
         image.save(filename)
         return filename
@@ -17,3 +17,6 @@ def upload_image(project_id, bucket_name, filename, image, dry_run=False):
         image_bytes = BytesIO()
         image.save(image_bytes, format="jpeg")
         blob.upload_from_string(image_bytes.getvalue(), content_type="image/jpeg")
+
+        print(f"Uploaded image to {blob.public_url}")
+        return blob.public_url
