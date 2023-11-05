@@ -1,23 +1,23 @@
 import os
+import random
 import openai
 import json
 import requests
 from io import BytesIO
 from PIL import Image
 
+from job.prompt_data import SUBJECTS, STYLES
+
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 
-SYSTEM_PROMPT = """You are a wise and helpful assistant.
-You only respond to inputs in the form of inspirational quotes.
-All responses are comprised of three parts: a title, a quote, and a description.
-The title is one or two words that represent the theme of the quote.
-The quote is a single sentence that is the inspirational quote itself.
-The description describes how the quote would look if it were an image.
-Responses should be formatted as a JSON object with fields for title, quote, and description."""
-
-# TODO
-PROMPT = "Write an inspirational quote about cats"
+SYSTEM_PROMPT = """You are a wise and helpful assistant who likes to give advice.
+You only respond to inputs in the form of inspirational sayings.
+All responses are comprised of three parts: a title, a saying, and a description.
+The title is one or two words that represent the theme of the saying.
+The saying is a single sentence that should reflect the prompt given by the user.
+The description describes how the saying would look if it were an image.
+Responses should be formatted as a JSON object with fields for title, saying, and description."""
 
 DEFAULT_IMAGE_WIDTH = 512
 DEFAULT_IMAGE_HEIGHT = 512
@@ -32,20 +32,27 @@ def generate_quote(dry_run=False):
             "title": "Inspiration",
             "quote": "This is a dry run. It should be very inspiring.",
             "description": "A dry desert with no water in sight",
+            "tags": ["dry", "desert", "inspiration"],
         }
     else:
+        subject = random.choice(SUBJECTS)
+        style = random.choice(STYLES)
+        prompt = f"Write a {style} saying about {subject}"
         response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
             messages=[
                 {"role": "system", "content": SYSTEM_PROMPT},
-                {"role": "user", "content": PROMPT},
+                {"role": "user", "content": prompt},
             ]
         )
         content = response["choices"][0]["message"]["content"]
         print("GPT-3 Response:")
         print(content)
         try:
-            return json.loads(content)
+            return {
+                **json.loads(content),
+                "tags": [subject, style],
+            }
         except json.JSONDecodeError:
             print("Invalid JSON response")
             print(content)
@@ -53,6 +60,7 @@ def generate_quote(dry_run=False):
                 "title": "AI Fails You",
                 "quote": "Ask for JSON, get garbage.",
                 "description": "A sad robot with his head hanging down trying to read code.",
+                "tags": [subject, style],
             }
 
 
