@@ -1,7 +1,7 @@
 layout: post
 quote_image_url: https://storage.googleapis.com/inspiration-ai-quote-images/2023-11-05.jpg
-quote_title: Inspiration
+quote_title: Work
 
 ---
 
-This is a dry run. It should be very inspiring.
+The squirrel that sips tea on its lunch break knows the secret to productivity.
