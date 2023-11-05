@@ -3,7 +3,7 @@ import base64
 
 def upload(gh_token, repo, path, content):
     data = {
-        "message": "Adding post",
+        "message": f"Automated commit: Adding {path}",
         "content": base64.b64encode(content.encode("utf-8")).decode("utf-8")
     }
 
