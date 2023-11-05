@@ -30,4 +30,5 @@ def execute(dry_run=False):
     markdown = build_page(post_date, quote_data, image_url)
 
     # Upload the markdown
-    upload(gh_token=GITHUB_TOKEN, repo=GITHUB_REPO, path=f"site/_posts/{post_date}-inspiration.markdown", content=markdown)
+    title = quote_data["title"].lower().replace(" ", "-")
+    upload(gh_token=GITHUB_TOKEN, repo=GITHUB_REPO, path=f"site/_posts/{post_date}-{title}.markdown", content=markdown)

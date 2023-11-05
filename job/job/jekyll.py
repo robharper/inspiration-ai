@@ -6,7 +6,8 @@ def build_page(date, quote, image_url):
         "layout": "post",
         "quote_title": quote["title"],
         "quote_image_url": image_url,
+        "quote_image_description": quote["description"],
         "tags": quote["tags"],
     }
 
-    return dump(front_matter) + "\n---\n\n" + quote["saying"]
+    return "---\n" + dump(front_matter) + "\n---\n\n" + quote["saying"]
