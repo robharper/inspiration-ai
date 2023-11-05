@@ -1,7 +1,7 @@
 # Fix OSX threading issues
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
-# export DRY_RUN=true
+export DRY_RUN=true
 
 # Set env vars from cloud-functions .env.yaml file
 export $(yq e 'to_entries | map(.key + "=" + .value) | join(" ")' .env.yaml)
