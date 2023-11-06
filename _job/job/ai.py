@@ -40,6 +40,8 @@ def generate_quote(dry_run=False):
         prompt = f"Write a {style} saying about {subject}"
         response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
+            # Higher temperature to get less predicatable results
+            temperature=1.5,
             messages=[
                 {"role": "system", "content": SYSTEM_PROMPT},
                 {"role": "user", "content": prompt},
