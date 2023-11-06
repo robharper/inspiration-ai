@@ -13,12 +13,12 @@ layout: default
   <div class="post-nav">
     <div>
       {% if page.previous.url %}
-      <a href="{{page.previous.url | relative_url }}">&larr;</a>
+      <a href="{{page.previous.url | relative_url }}"><span class="big">&larr;</span><span>Previous</span></a>
       {% endif %}
     </div>
     <div>
       {% if page.next.url %}
-      <a href="{{page.next.url | relative_url }}">&rarr;</a>
+      <a href="{{page.next.url | relative_url }}"><span>Next</span><span class="big">&rarr;</span></a>
       {% endif %}
     </div>
   </div>

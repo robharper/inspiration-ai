@@ -43,7 +43,12 @@ small {
   display: flex;
   justify-content: space-between;
   margin: 2rem auto;
-  font-size: 3em;
+}
+.post-nav a {
+  display: flex;
+}
+.post-nav .big {
+  font-size: 2.5em;
 }
 
 footer {
