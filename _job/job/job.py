@@ -31,4 +31,4 @@ def execute(dry_run=False):
 
     # Upload the markdown
     title = quote_data["title"].lower().replace(" ", "-")
-    upload(gh_token=GITHUB_TOKEN, repo=GITHUB_REPO, path=f"site/_posts/{post_date}-{title}.markdown", content=markdown)
+    upload(gh_token=GITHUB_TOKEN, repo=GITHUB_REPO, path=f"_posts/{post_date}-{title}.markdown", content=markdown)
