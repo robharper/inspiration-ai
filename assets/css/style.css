@@ -29,9 +29,14 @@ header {
 }
 
 section.quote {
-  width: 512px;
+  width: 90%;
+  max-width: 512px;
   margin: 2rem auto;
   text-align: center;
+}
+
+img {
+  max-width: 100%;
 }
 
 small {
