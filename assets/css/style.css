@@ -45,15 +45,28 @@ small {
 }
 
 .post-nav {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
   margin: 2rem auto;
 }
 .post-nav a {
   display: flex;
+  justify-content: center;
+}
+.post-nav div:first-child a {
+  justify-content: left;
+}
+.post-nav div:last-child a {
+  justify-content: right;
 }
 .post-nav .big {
   font-size: 2.5em;
+}
+@media screen and (max-width: 400px) {
+  .post-nav .words {
+    display: none;
+  }
 }
 
 footer {
