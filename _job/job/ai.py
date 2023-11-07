@@ -28,9 +28,10 @@ def generate_quote(dry_run=False):
         raise Exception("OpenAI API key not set")
 
     if dry_run:
+        print(f"Dry run: Returning fake AI response")
         return {
             "title": "Inspiration",
-            "quote": "This is a dry run. It should be very inspiring.",
+            "saying": "This is a dry run. It should be very inspiring.",
             "description": "A dry desert with no water in sight",
             "tags": ["dry", "desert", "inspiration"],
         }
@@ -60,7 +61,7 @@ def generate_quote(dry_run=False):
             print(content)
             return {
                 "title": "AI Fails You",
-                "quote": "Ask for JSON, get garbage.",
+                "saying": "Ask for JSON, get garbage.",
                 "description": "A sad robot with his head hanging down trying to read code.",
                 "tags": [subject, style],
             }
@@ -72,6 +73,7 @@ def generate_image(description, dry_run=False, width=DEFAULT_IMAGE_WIDTH, height
 
     image_url = None
     if dry_run:
+        print(f"Dry run: Returning static image")
         image_url = f"https://images.unsplash.com/photo-1698778755355-e269c65b5e16?auto=format&fit=crop&q=80&w={width}&h={height}"
     else:
         print("Generating image")

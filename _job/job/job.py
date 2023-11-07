@@ -11,10 +11,7 @@ BUCKET_NAME = os.getenv("IMAGES_BUCKET_NAME")
 GITHUB_REPO = os.getenv("GITHUB_REPO")
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 
-def execute(dry_run=False):
-    # Use today's date as post's date unless overridden
-    post_date = os.getenv("DATE_OVERRIDE", date.today().strftime("%Y-%m-%d"))
-
+def execute(post_date, dry_run=False):
     # Generate the inspirational quote using LLM
     quote_data = generate_quote(dry_run=dry_run)
 
@@ -24,11 +21,11 @@ def execute(dry_run=False):
     # image = build_image(quote_data, image)
 
     # Upload the image to Cloud Storage
-    image_url = upload_image(project_id=GCP_PROJECT_ID, bucket_name=BUCKET_NAME, filename=f"{post_date}.jpg", image=image)
+    image_url = upload_image(project_id=GCP_PROJECT_ID, bucket_name=BUCKET_NAME, filename=f"{post_date}.jpg", image=image, dry_run=dry_run)
 
     # Generate the markdown
     markdown = build_page(post_date, quote_data, image_url)
 
     # Upload the markdown
     title = quote_data["title"].lower().replace(" ", "-")
-    upload(gh_token=GITHUB_TOKEN, repo=GITHUB_REPO, path=f"_posts/{post_date}-{title}.markdown", content=markdown)
+    upload(gh_token=GITHUB_TOKEN, repo=GITHUB_REPO, path=f"_posts/{post_date}-{title}.markdown", content=markdown, dry_run=dry_run)

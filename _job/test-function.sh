@@ -7,7 +7,9 @@ curl localhost:8080 \
   -H "ce-type: google.cloud.pubsub.topic.v1.messagePublished" \
   -H "ce-source: //pubsub.googleapis.com/projects/MY-PROJECT/topics/MY-TOPIC" \
   -d '{
-        "message": {},
+        "message": {
+          "data": "eyJkYXRlIjoiMjAyMy0xMC0yOSJ9Cg=="
+        },
         "subscription": "projects/inspiration-ai/subscriptions/run-nightly"
       }'
 

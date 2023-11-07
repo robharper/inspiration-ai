@@ -5,10 +5,9 @@ def upload_image(project_id, bucket_name, filename, image, dry_run=False):
     """
     Upload an image to GCS
     """
-    if False: #dry_run:
-        filename = "result.jpg"
-        image.save(filename)
-        return filename
+    if dry_run:
+        print(f"Dry run: Using static image URL")
+        return "https://images.unsplash.com/photo-1698778755355-e269c65b5e16?auto=format&fit=crop&q=80&w=512&h=512"
     else:
         storage_client = Client(project=project_id)
         bucket = storage_client.bucket(bucket_name)
