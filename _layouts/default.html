@@ -5,7 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
+    {% if page.quote_title %}
+    <meta property="og:title" content="Oh My AI - {{ page.quote_title }}">
+    {% endif %}
+    {% if page.quote_image_url %}
+      <meta property="og:image" content="{{ page.quote_image_url }}">
+    {% endif %}
+    {% if page.quote_image_url %}
+      <meta property="og:description" content="{{ page.content | strip_html | strip }}">
+    {% else %}
+      <meta property="og:description" content="Daily quotes generated for your pleasure by ChatGPT">
+    {% endif %}
+    <meta property="og:site_name" content="Oh My, AI">
+
+    <link rel="icon" type="image/png" href="{{ '/assets/img/robot-white.png' | relative_url }}" />
+
+    <link rel="stylesheet" href="{{ '/assets/css/main.css?v=' | append: site.github.build_revision | relative_url }}">
     <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <![endif]-->
@@ -14,6 +29,13 @@
   <body>
     <div class="wrapper">
       <header>
+        <div class="content">
+          <span>
+            <img src="{{ '/assets/img/robot-white.png' | relative_url }}">
+            <h3><a href="{{'/' | relative_url }}">Oh My, AI</a></h3>
+          </span>
+          <a href="{{ site.baseurl }}/tags">Tags</a>
+        </div>
       </header>
       <section>
 

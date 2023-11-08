@@ -1,14 +1,14 @@
 ---
 layout: default
 ---
-<section class="quote">
-  <h1>{{ page.quote_title }}</h1>
+<section class="quote content">
+  <h1 class="center">{{ page.quote_title }}</h1>
 
   <img src="{{ page.quote_image_url }}" alt="{{page.quote_image_description}}">
 
   <p>{{ content }}</p>
 
-  <small>{{ page.date | date: "%Y-%m-%d" }}</small>
+  <small>{{ page.date | date: "%Y-%m-%d" }} - {{ page.tags | array_to_sentence_string }}</small>
 
   <div class="post-nav">
     <div>
