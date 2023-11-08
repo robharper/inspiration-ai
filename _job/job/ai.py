@@ -19,8 +19,8 @@ The saying is a single sentence that should reflect the prompt given by the user
 The description describes how the saying would look if it were an image.
 Responses should be formatted as a JSON object with fields for title, saying, and description."""
 
-DEFAULT_IMAGE_WIDTH = 512
-DEFAULT_IMAGE_HEIGHT = 512
+DEFAULT_IMAGE_WIDTH = 1024
+DEFAULT_IMAGE_HEIGHT = 1024
 
 
 def generate_quote(dry_run=False):
@@ -78,7 +78,8 @@ def generate_image(description, dry_run=False, width=DEFAULT_IMAGE_WIDTH, height
     else:
         print("Generating image")
         response = openai.Image.create(
-            prompt=description,
+            model="dall-e-3",
+            prompt=description + ". Do not include text in the image.",
             n=1,
             size=f"{width}x{height}"
         )

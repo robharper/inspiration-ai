@@ -8,7 +8,7 @@ curl localhost:8080 \
   -H "ce-source: //pubsub.googleapis.com/projects/MY-PROJECT/topics/MY-TOPIC" \
   -d '{
         "message": {
-          "data": "eyJkYXRlIjoiMjAyMy0xMC0yOSJ9Cg=="
+          "data": "eyJkYXRlIjoiMjAyMy0xMC0xOSJ9Cg=="
         },
         "subscription": "projects/inspiration-ai/subscriptions/run-nightly"
       }'
