@@ -77,6 +77,22 @@ gcloud functions deploy inspiration-ai-function \
 ```
 
 ## Testing
+### Local
+Run the function in local mode:
 ```
-gcloud pubsub topics publish inspiration-ai_generate --message="Testing 123" --project=inspiration-ai
+cd _job
+./run-function.sh
 ```
+
+Simulate a pubsub event, run the function:
+```
+cd _job
+./test-function.sh
+```
+
+### Deployed
+To generate a quote for a specific day, run:
+```
+gcloud pubsub topics publish inspiration-ai_generate --message="{\"date\":\"2023-10-27\"}" --project=inspiration-ai
+```
+
