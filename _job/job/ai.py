@@ -16,7 +16,7 @@ You only respond to inputs in the form of inspirational sayings.
 All responses are comprised of three parts: a title, a saying, and a description.
 The title is one to three words that represent the theme of the saying.
 The saying is a single sentence that should reflect the prompt given by the user.
-The description describes how the saying would look if it were an image.
+The description describes a visual representation of the contents of the saying but it should not reference the saying itself.
 Responses should be formatted as a JSON object with fields for title, saying, and description."""
 
 DEFAULT_IMAGE_WIDTH = 1024
@@ -79,7 +79,7 @@ def generate_image(description, dry_run=False, width=DEFAULT_IMAGE_WIDTH, height
         print("Generating image")
         response = openai.Image.create(
             model="dall-e-3",
-            prompt=description + ". Do not include text in the image.",
+            prompt=description,
             n=1,
             size=f"{width}x{height}"
         )
