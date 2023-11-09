@@ -1,0 +1,14 @@
+---
+layout: post
+quote_image_description: Imagine a whimsical landscape of rolling hills made entirely
+  of cheese, with goats soaring through the sky, as a figurine of wisdom wearing Lotus
+  sandals explores new realms.
+quote_image_url: https://storage.googleapis.com/inspiration-ai-quote-images/2023-10-12.jpg
+quote_title: Wisdom
+tags:
+- cheese
+- surreal
+
+---
+
+In a world of limitless choices, let cheese reshape your perspective towards new horizons.
