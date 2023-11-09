@@ -1,0 +1,14 @@
+---
+layout: post
+quote_image_description: In a comically mismatched duel between a quirky clown and
+  a gloomy shadow, a tiny beam of sunlight tries to diffuse the cloud of sorrow cast
+  by sadness.
+quote_image_url: https://storage.googleapis.com/inspiration-ai-quote-images/2023-10-16.jpg
+quote_title: Mirth
+tags:
+- sadness
+- farcical
+
+---
+
+Happiness tells sadness to lighten up...but sadness just wants to stay in the dark.
