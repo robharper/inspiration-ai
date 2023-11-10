@@ -5,6 +5,7 @@ SUBJECTS = [
     "support",
     "passion",
     "change",
+    "hard work",
     "sadness",
     "fear",
     "cats",
@@ -45,6 +46,13 @@ SUBJECTS = [
     "stairs",
     "low battery",
     "teeth",
+    "offices",
+    "office politics",
+    "working from home",
+    "artificial intelligence",
+    "Batman",
+    "Rick Astley",
+    "winter",
 ]
 
 STYLES = [
@@ -55,7 +63,7 @@ STYLES = [
     "surreal",
     "zen",
     "modern",
-    "bizzare",
+    "bizarre",
     "nonsense",
     "funny",
     "serious",
@@ -74,4 +82,6 @@ STYLES = [
     "ironic",
     "sarcastic",
     "sardonic",
+    "inspirational",
+    "motivational",
 ]

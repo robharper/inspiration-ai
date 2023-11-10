@@ -21,7 +21,10 @@ def execute(post_date, dry_run=False):
     # image = build_image(quote_data, image)
 
     # Upload the image to Cloud Storage
-    image_url = upload_image(project_id=GCP_PROJECT_ID, bucket_name=BUCKET_NAME, filename=f"{post_date}.jpg", image=image, dry_run=dry_run)
+    image_url = upload_image(project_id=GCP_PROJECT_ID, bucket_name=BUCKET_NAME, filename=f"daily/{post_date}.jpg", image=image, dry_run=dry_run)
+
+    # Override with custom domain
+    image_url = f"http://static.ohmyai.rocks/daily/{post_date}.jpg"
 
     # Generate the markdown
     markdown = build_page(post_date, quote_data, image_url)

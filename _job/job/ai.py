@@ -3,6 +3,7 @@ import random
 import openai
 import json
 import requests
+import re
 from io import BytesIO
 from PIL import Image
 
@@ -51,20 +52,29 @@ def generate_quote(dry_run=False):
         content = response["choices"][0]["message"]["content"]
         print("GPT-3 Response:")
         print(content)
+
+        content_json = None
         try:
-            return {
-                **json.loads(content),
-                "tags": [subject, style],
-            }
+            content_json = json.loads(content)
         except json.JSONDecodeError:
-            print("Invalid JSON response")
-            print(content)
-            return {
-                "title": "AI Fails You",
-                "saying": "Ask for JSON, get garbage.",
-                "description": "A sad robot with his head hanging down trying to read code.",
-                "tags": [subject, style],
-            }
+            print("Invalid JSON response, attempting manual extract")
+            title_search = re.search('"title":\s*"(.*)",?\n', content, re.IGNORECASE)
+            saying_search = re.search('"saying":\s*"(.*)",?\n', content, re.IGNORECASE)
+            description_search = re.search('"description":\s*"(.*)",?\n', content, re.IGNORECASE)
+            if title_search and saying_search and description_search:
+                content_json = {
+                    "title": title_search.group(1),
+                    "saying": saying_search.group(1),
+                    "description": description_search.group(1),
+                }
+
+        if not content_json:
+            raise Exception("Could not parse response")
+
+        return {
+            **content_json,
+            "tags": [subject, style],
+        }
 
 
 def generate_image(description, dry_run=False, width=DEFAULT_IMAGE_WIDTH, height=DEFAULT_IMAGE_HEIGHT):
