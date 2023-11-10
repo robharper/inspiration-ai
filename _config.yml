@@ -21,8 +21,8 @@
 title: Oh My, AI!
 description: >- # this means to ignore newlines until "baseurl:"
   Daily generated terrible inspiration
-baseurl: "/inspiration-ai" # the subpath of your site, e.g. /blog
-url: "https://www.robharper.ca" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: # the subpath of your site, e.g. /blog
+url: "http://www.ohmyai.rocks" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
 github_username:  jekyll
 
