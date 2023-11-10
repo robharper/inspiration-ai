@@ -1,0 +1,13 @@
+---
+layout: post
+quote_image_description: Imagine a vibrant sunset over a calm body of water, where
+  every fear dissolves into rays of inner strength and courage.
+quote_image_url: https://storage.googleapis.com/inspiration-ai-quote-images/2023-10-09.jpg
+quote_title: Courage
+tags:
+- fear
+- zen
+
+---
+
+Face your fears and watch them fade away, for behind every fear lies strength.
