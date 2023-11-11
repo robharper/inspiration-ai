@@ -1,5 +1,4 @@
 import os
-from datetime import date
 from job.ai import generate_quote, generate_image
 from job.gcp import upload_image
 from job.jekyll import build_page
@@ -7,6 +6,7 @@ from job.github import upload
 
 GCP_PROJECT_ID = os.getenv("GCP_PROJECT_ID")
 BUCKET_NAME = os.getenv("IMAGES_BUCKET_NAME")
+IMAGES_PATH = os.getenv("IMAGES_PATH")
 
 GITHUB_REPO = os.getenv("GITHUB_REPO")
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
@@ -21,10 +21,7 @@ def execute(post_date, dry_run=False):
     # image = build_image(quote_data, image)
 
     # Upload the image to Cloud Storage
-    image_url = upload_image(project_id=GCP_PROJECT_ID, bucket_name=BUCKET_NAME, filename=f"daily/{post_date}.jpg", image=image, dry_run=dry_run)
-
-    # Override with custom domain
-    image_url = f"http://static.ohmyai.rocks/daily/{post_date}.jpg"
+    image_url = upload_image(project_id=GCP_PROJECT_ID, bucket_name=BUCKET_NAME, filename=f"{IMAGES_PATH}/{post_date}.jpg", image=image, dry_run=dry_run)
 
     # Generate the markdown
     markdown = build_page(post_date, quote_data, image_url)

@@ -83,7 +83,7 @@ def generate_image(description, dry_run=False, width=DEFAULT_IMAGE_WIDTH, height
 
     image_url = None
     if dry_run:
-        print(f"Dry run: Returning static image")
+        print(f"Dry run: Generating for prompt {description}")
         image_url = f"https://images.unsplash.com/photo-1698778755355-e269c65b5e16?auto=format&fit=crop&q=80&w={width}&h={height}"
     else:
         print("Generating image")

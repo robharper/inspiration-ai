@@ -3,7 +3,7 @@ import base64
 
 def upload(gh_token, repo, path, content, dry_run=False):
     if dry_run:
-        print(f"Dry run: Skipping upload to GitHub at {repo}/{path}")
+        print(f"Dry run: Would upload {content} to {repo}/{path}")
     else:
         data = {
             "message": f"Automated commit: Adding {path}",

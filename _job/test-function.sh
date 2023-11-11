@@ -1,3 +1,5 @@
+GENERATE_DATE=$(echo "{\"date\":\"$1\"}" | base64)
+
 curl localhost:8080 \
   -X POST \
   -H "Content-Type: application/json" \
@@ -6,10 +8,10 @@ curl localhost:8080 \
   -H "ce-time: 2020-01-02T12:34:56.789Z" \
   -H "ce-type: google.cloud.pubsub.topic.v1.messagePublished" \
   -H "ce-source: //pubsub.googleapis.com/projects/MY-PROJECT/topics/MY-TOPIC" \
-  -d '{
-        "message": {
-          "data": "eyJkYXRlIjoiMjAyMy0xMC0xOSJ9Cg=="
+  -d "{
+        \"message\": {
+          \"data\": \"$GENERATE_DATE\"
         },
-        "subscription": "projects/inspiration-ai/subscriptions/run-nightly"
-      }'
+        \"subscription\": \"projects/inspiration-ai/subscriptions/run-nightly\"
+      }"
 
