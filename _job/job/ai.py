@@ -87,12 +87,22 @@ def generate_image(description, dry_run=False, width=DEFAULT_IMAGE_WIDTH, height
         image_url = f"https://images.unsplash.com/photo-1698778755355-e269c65b5e16?auto=format&fit=crop&q=80&w={width}&h={height}"
     else:
         print("Generating image")
-        response = openai.Image.create(
-            model="dall-e-3",
-            prompt=description,
-            n=1,
-            size=f"{width}x{height}"
-        )
+        retries = 0
+        response = None
+        # Try up to 3 times to generate an image
+        while not response and retries < 3:
+            try:
+                response = openai.Image.create(
+                    model="dall-e-3",
+                    prompt=description,
+                    n=1,
+                    size=f"{width}x{height}"
+                )
+            except Exception as e:
+                # This sometimes happens when OpenAI feels the image would violate their terms of service
+                print("Failed to generate image", e)
+                retries += 1
+
         image_url = response["data"][0]["url"]
         print("Image URL:")
         print(image_url)
