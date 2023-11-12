@@ -18,6 +18,6 @@ def upload_image(project_id, bucket_name, filename, image, dry_run=False):
         image.save(image_bytes, format="jpeg")
         blob.upload_from_string(image_bytes.getvalue(), content_type="image/jpeg")
 
-        public_url = f"http://f{bucket_name}/{filename}"
+        public_url = f"http://{bucket_name}/{filename}"
         print(f"Uploaded image to {blob.public_url} --> {public_url}")
         return public_url
