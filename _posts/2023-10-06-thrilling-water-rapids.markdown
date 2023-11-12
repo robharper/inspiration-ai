@@ -3,7 +3,7 @@ layout: post
 quote_image_description: Imagine a group of adventurous souls rowing a brilliant white
   boat through wild rapids surrounded by luscious greenery; their smiles radiant with
   pure joy and exhilaration.
-quote_image_url: http://fstatic.ohmyai.rocks/daily/2023-10-06.jpg
+quote_image_url: http://static.ohmyai.rocks/daily/2023-10-06.jpg
 quote_title: Thrilling Water Rapids
 tags:
 - white water rafting
