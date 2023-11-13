@@ -22,6 +22,8 @@ def execute(post_date, dry_run=False):
 
     # Upload the image to Cloud Storage
     image_url = upload_image(project_id=GCP_PROJECT_ID, bucket_name=BUCKET_NAME, filename=f"{IMAGES_PATH}/{post_date}.jpg", image=image, dry_run=dry_run)
+    if not image_url:
+        return -1
 
     # Generate the markdown
     markdown = build_page(post_date, quote_data, image_url)

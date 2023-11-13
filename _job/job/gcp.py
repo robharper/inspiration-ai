@@ -16,8 +16,12 @@ def upload_image(project_id, bucket_name, filename, image, dry_run=False):
 
         image_bytes = BytesIO()
         image.save(image_bytes, format="jpeg")
-        blob.upload_from_string(image_bytes.getvalue(), content_type="image/jpeg")
+        try:
+            blob.upload_from_string(image_bytes.getvalue(), content_type="image/jpeg")
+        except Exception as e:
+            print(f"Error uploading image: {e}")
+            return None
 
-        public_url = f"http://{bucket_name}/{filename}"
-        print(f"Uploaded image to {blob.public_url} --> {public_url}")
+        public_url = blob.public_url
+        print(f"Uploaded image to {public_url}")
         return public_url

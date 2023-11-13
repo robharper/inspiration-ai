@@ -2,4 +2,4 @@
 export $(yq e 'to_entries | map(.key + "=" + .value) | join(" ")' .env.yaml)
 
 # Run the util
-python regenerate.py "$1" "$2"
+python regenerate.py --fetch "$1" "$2"
