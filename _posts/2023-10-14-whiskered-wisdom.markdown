@@ -2,7 +2,7 @@
 layout: post
 quote_image_description: Imagine a quirky cat floating in a playful reverie, surrounded
   by vibrant daisies and silly smiles.
-quote_image_url: https://storage.googleapis.com/inspiration-ai-quote-images/2023-10-14.jpg
+quote_image_url: https://storage.googleapis.com/static.ohmyai.rocks/daily/2023-10-14.jpg
 quote_title: Whiskered Wisdom
 tags:
 - cats

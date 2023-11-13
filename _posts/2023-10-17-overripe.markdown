@@ -3,7 +3,7 @@ layout: post
 quote_image_description: A bowl overflowing with melted cheese cascading down the
   sides, with strands stretching from the mountain towards small pieces of bread waiting
   to be dipped in that gooey goodness - it is surely irresistible, right?
-quote_image_url: https://storage.googleapis.com/inspiration-ai-quote-images/2023-10-17.jpg
+quote_image_url: https://storage.googleapis.com/static.ohmyai.rocks/daily/2023-10-17.jpg
 quote_title: Overripe
 tags:
 - cheese

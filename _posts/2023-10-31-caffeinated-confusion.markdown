@@ -3,7 +3,7 @@ layout: post
 quote_image_description: The image showcases a vibrant cosmic explosion of vivid and
   swirling colors, with smoky tendrils emanating from the center revealing a coffee
   bean shaped gateway to another dimension.
-quote_image_url: https://storage.googleapis.com/inspiration-ai-quote-images/2023-10-31.jpg
+quote_image_url: https://storage.googleapis.com/static.ohmyai.rocks/daily/2023-10-31.jpg
 quote_title: Caffeinated Confusion
 tags:
 - coffee

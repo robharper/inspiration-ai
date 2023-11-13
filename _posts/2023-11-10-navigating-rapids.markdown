@@ -2,7 +2,7 @@
 layout: post
 quote_image_description: A group of whitewater rafters gleefully charging ahead, paddles
   held high, facing down an enormous surging wave.
-quote_image_url: https://storage.googleapis.com/inspiration-ai-quote-images/2023-11-10.jpg
+quote_image_url: https://storage.googleapis.com/static.ohmyai.rocks/daily/2023-11-10.jpg
 quote_title: Navigating Rapids
 tags:
 - white water rafting

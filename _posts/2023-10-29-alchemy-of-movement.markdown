@@ -4,7 +4,7 @@ quote_image_description: The saying is embodied by a figure gracefully moving am
   dilapidated clocks and hourglasses, where each dance step is accompanied by flares
   of vibrant light, illustrating the alchemical transformation of the body and spirit
   through physical movement.
-quote_image_url: https://storage.googleapis.com/inspiration-ai-quote-images/2023-10-29.jpg
+quote_image_url: https://storage.googleapis.com/static.ohmyai.rocks/daily/2023-10-29.jpg
 quote_title: Alchemy of Movement
 tags:
 - fitness
