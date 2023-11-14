@@ -5,7 +5,7 @@ html, body {
 
 body {
   /* background: #222; */
-  color: #ddd;
+  color: #e5e0e0;
   font-family: 'Open Sans', sans-serif;
   font-size: 18px;
   line-height: 20px;
@@ -16,11 +16,16 @@ body {
 
 a, a:visited {
   color: #eee;
-  font-weight: bold;
   text-decoration: none;
 }
 a:hover {
-  color: #a8d4d5;
+  color: #ac9c9c;
+}
+h2 {
+  color: #76cacb;
+}
+.dark {
+  color: #ac9c9c;
 }
 
 header {
@@ -85,7 +90,7 @@ img {
 }
 
 small {
-  color: #aaa;
+  color: #ac9c9c;
   font-size: 0.7rem;
 }
 
@@ -115,6 +120,7 @@ small {
 }
 
 footer {
+  color: #ac9c9c;
   text-align: center;
   font-size: 0.8rem;
 }

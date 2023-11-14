@@ -7,7 +7,7 @@ title: Index
 <section class="content">
 {% assign posts_by_month = site.posts | group_by_exp: "item", "item.date | date: '%b %Y'" %}
 {% for group in posts_by_month %}
-<h3>{{ group.name }}</h3>
+<h2>{{ group.name }}</h2>
 <ul>
   {% for post in group.items %}
     <li>

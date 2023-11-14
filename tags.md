@@ -9,7 +9,7 @@ title: Tags
 {% for tag in tag_list %}
   <div class="tag-group" id="#{{ tag_name | slugize }}">
     {% capture tag_name %}{{ tag | first }}{% endcapture %}
-    <h3>{{ tag_name }}</h3>
+    <h2>{{ tag_name }}</h2>
     <ul>
     {% for post in site.tags[tag_name] %}
     <li>
