@@ -54,6 +54,14 @@ gcloud projects add-iam-policy-binding inspiration-ai --member="serviceAccount:i
 ```
 
 ### Create a Cloud Storage Bucket
+```
+gcloud storage buckets create gs://static-inspiration-ai --project=inspiration-ai --default-storage-class=standard --location=europe-north1 --uniform-bucket-level-access
+```
+
+Make the bucket public:
+```
+gcloud storage buckets add-iam-policy-binding gs://static-inspiration-ai --member=allUsers --role=roles/storage.objectViewer
+```
 
 ### Create a Pub/Sub Topic
 To create a pubsub topic to trigger the cloud function, run:
