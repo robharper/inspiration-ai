@@ -4,23 +4,29 @@ html, body {
 }
 
 body {
-  background: #222;
-  color: #eee;
+  /* background: #222; */
+  color: #ddd;
   font-family: 'Open Sans', sans-serif;
   font-size: 18px;
   line-height: 20px;
+  background: rgba(100,50,49,1);
+  background: linear-gradient(0deg, rgb(78, 37, 36) 0%, rgb(37, 19, 18) 100%);
+  background-repeat: no-repeat;
 }
 
 a, a:visited {
-  color: #f77;
+  color: #eee;
+  font-weight: bold;
   text-decoration: none;
+}
+a:hover {
+  color: #a8d4d5;
 }
 
 header {
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgb(99, 28, 28);
   padding: 0.5rem 0;
 }
 header div {
@@ -100,7 +106,7 @@ small {
   justify-content: right;
 }
 .post-nav .big {
-  font-size: 2.5em;
+  font-size: 2.0em;
 }
 @media screen and (max-width: 400px) {
   .post-nav .words {
