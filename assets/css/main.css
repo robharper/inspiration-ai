@@ -29,10 +29,8 @@ h2 {
 }
 
 header {
-  position: fixed;
-  top: 0;
   width: 100%;
-  padding: 0.5rem 0;
+  padding: 1rem 0;
 }
 header div {
   display: flex;
@@ -57,10 +55,6 @@ header h3 a, header h3 a:visited {
   max-width: 512px;
   margin-left: auto;
   margin-right: auto;
-}
-
-.wrapper {
-  padding-top: 2.5rem;
 }
 
 ul {
