@@ -1,6 +1,7 @@
 html, body {
   margin: 0;
   padding: 0;
+  background: rgb(78, 37, 36);
 }
 
 body {
@@ -9,7 +10,6 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-size: 18px;
   line-height: 20px;
-  background: rgba(100,50,49,1);
   background: linear-gradient(0deg, rgb(78, 37, 36) 0%, rgb(37, 19, 18) 100%);
   background-repeat: no-repeat;
 }
@@ -71,7 +71,7 @@ h1 {
 }
 
 section {
-  margin-top: 2rem;
+  margin-top: 1rem;
   margin-bottom: 2rem;
 }
 
