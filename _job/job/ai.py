@@ -7,18 +7,25 @@ import re
 from io import BytesIO
 from PIL import Image
 
-from job.prompt_data import SUBJECTS, STYLES
+from job.prompt_data import STYLES
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 
-SYSTEM_PROMPT = """You are a wise and helpful assistant who likes to give advice.
+SYSTEM_PROMPT = """
+You are a wise and helpful assistant who likes to give advice.
 You only respond to inputs in the form of inspirational sayings.
-All responses are comprised of three parts: a title, a saying, and a description.
+When asked to write a saying, follow these steps:
+
+Step 1: choose a subject. The subject should be chosen randomly and should be a person, place, activity, food, object, or concept.
+
+Step 2: generate a saying about the subject. The saying should be comprised of a title, the saying, and a description.
 The title is one to three words that represent the theme of the saying.
 The saying is a single sentence that should reflect the prompt given by the user.
 The description describes a visual representation of the contents of the saying but it should not reference the saying itself.
-Responses should be formatted as a JSON object with fields for title, saying, and description."""
+
+Step 3: return a response formatted as a JSON object with fields for subject, title, saying, and description.
+"""
 
 DEFAULT_IMAGE_WIDTH = 1024
 DEFAULT_IMAGE_HEIGHT = 1024
@@ -37,9 +44,8 @@ def generate_quote(dry_run=False):
             "tags": ["dry", "desert", "inspiration"],
         }
     else:
-        subject = random.choice(SUBJECTS)
         style = random.choice(STYLES)
-        prompt = f"Write a {style} saying about {subject}"
+        prompt = f"Write a {style} saying"
         response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
             # Higher temperature to get less predicatable results
@@ -73,7 +79,7 @@ def generate_quote(dry_run=False):
 
         return {
             **content_json,
-            "tags": [subject, style],
+            "tags": [content_json["subject"], style],
         }
 
 
@@ -96,7 +102,8 @@ def generate_image(description, dry_run=False, width=DEFAULT_IMAGE_WIDTH, height
                     model="dall-e-3",
                     prompt=description,
                     n=1,
-                    size=f"{width}x{height}"
+                    size=f"{width}x{height}",
+                    style=random.choice(["natural", "vivid"]),
                 )
             except Exception as e:
                 # This sometimes happens when OpenAI feels the image would violate their terms of service
