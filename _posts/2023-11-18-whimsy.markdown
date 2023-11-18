@@ -1,0 +1,13 @@
+---
+layout: post
+quote_image_description: Imagine a group of whimsical creatures dancing in a meadow,
+  singing nonsensical songs filled with joy and laughter.
+quote_image_url: https://storage.googleapis.com/static.ohmyai.rocks/daily/2023-11-18.jpg
+quote_title: Whimsy
+tags:
+- Nonsense
+- nonsense
+
+---
+
+Inquire thou the moonflower and the pinecone shall hum of frolic and neverending bunny wins!
