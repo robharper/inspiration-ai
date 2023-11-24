@@ -1,0 +1,13 @@
+---
+layout: post
+quote_image_description: Imagine holding a spoon and briskly swirling it in a cup
+  of steaming hot cocoa to create a beautiful whirlpool of chocolate and marshmallows.
+quote_image_url: https://storage.googleapis.com/static.ohmyai.rocks/daily/2023-11-24.jpg
+quote_title: Stir it Up
+tags:
+- spoon
+- quirky
+
+---
+
+Life can't always be spoon-fed to you, sometimes you gotta stir it up yourself!
