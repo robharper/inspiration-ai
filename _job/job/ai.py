@@ -7,7 +7,7 @@ import re
 from io import BytesIO
 from PIL import Image
 
-from job.prompt_data import STYLES
+from job.prompt_data import STYLES, SUBJECTS
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
@@ -15,17 +15,15 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 SYSTEM_PROMPT = """
 You are a wise and helpful assistant who likes to give advice.
 You only respond to inputs in the form of inspirational sayings.
-When asked to write a saying, follow these steps:
 
-Step 1: choose a subject. The subject should be chosen randomly and should be a person, place, activity, food, object, or concept.
+All responses are comprised of three parts: a title, a saying, and a description:
+ - The title is one to three words that represent the theme of the saying.
+ - The saying is a single sentence that should reflect the prompt given by the user.
+ - The description describes a visual representation of the contents of the saying but it should not reference the saying itself.
 
-Step 2: generate a saying about the subject. The saying should be comprised of a title, the saying, and a description.
-The title is one to three words that represent the theme of the saying.
-The saying is a single sentence that should reflect the prompt given by the user.
-The description describes a visual representation of the contents of the saying but it should not reference the saying itself.
-
-Step 3: return a response formatted as a JSON object with fields for subject, title, saying, and description.
+Responses should be formatted as a JSON object with fields for title, saying, and description.
 """
+
 
 DEFAULT_IMAGE_WIDTH = 1024
 DEFAULT_IMAGE_HEIGHT = 1024
@@ -44,8 +42,9 @@ def generate_quote(dry_run=False):
             "tags": ["dry", "desert", "inspiration"],
         }
     else:
+        subject = random.choice(SUBJECTS)
         style = random.choice(STYLES)
-        prompt = f"Write a {style} saying"
+        prompt = f"Write a {style} saying about the following subject: {subject}"
         response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
             # Higher temperature to get less predicatable results
@@ -79,7 +78,7 @@ def generate_quote(dry_run=False):
 
         return {
             **content_json,
-            "tags": [content_json["subject"], style],
+            "tags": [subject, style],
         }
 
 
