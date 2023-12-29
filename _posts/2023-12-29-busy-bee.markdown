@@ -1,0 +1,13 @@
+---
+layout: post
+quote_image_description: A worker bee in a beehive buzzing around a stylish and vibrant
+  office space, surrounded by productive colleagues.
+quote_image_url: https://storage.googleapis.com/static.ohmyai.rocks/daily/2023-12-29.jpg
+quote_title: Busy Bee
+tags:
+- offices
+- inspirational
+
+---
+
+A dull and lifeless office? Remember, you have the power to create an environment full of growth and enterprising zest.
