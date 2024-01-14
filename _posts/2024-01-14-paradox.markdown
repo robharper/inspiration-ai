@@ -1,0 +1,13 @@
+---
+layout: post
+quote_image_description: A lone student standing outside the courtyard of a school,
+  gazing at nature's library of limitless lessons.
+quote_image_url: https://storage.googleapis.com/static.ohmyai.rocks/daily/2024-01-14.jpg
+quote_title: Paradox
+tags:
+- school
+- contradictory
+
+---
+
+The true knowledge lies outside the walls of the classroom.
