@@ -1,0 +1,13 @@
+---
+layout: post
+quote_image_description: A person sits on a park bench, looking expectantly at their
+  watch, as all the hours pass them by in a blurred motion.
+quote_image_url: https://storage.googleapis.com/static.ohmyai.rocks/daily/2024-01-16.jpg
+quote_title: Patience
+tags:
+- waiting
+- ironic
+
+---
+
+Waiting is the fastest way to go nowhere.
