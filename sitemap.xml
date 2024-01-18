@@ -8,7 +8,6 @@ layout: null
     <url>
       <loc>{{ site.url }}{{ post.url }}</loc>
       <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
-      <changefreq>never</changefreq>
     </url>
     {% endunless %}
   {% endfor %}
