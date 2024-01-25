@@ -1,0 +1,13 @@
+---
+layout: post
+quote_image_description: A bustling comedy club, with compliments and mocking remarks
+  filling the air, mingling skyward like a shimmering rainbow of hilarity.
+quote_image_url: https://storage.googleapis.com/static.ohmyai.rocks/daily/2024-01-25.jpg
+quote_title: Laughter
+tags:
+- comedy
+- tongue-in-cheek
+
+---
+
+Comedy is just courtesy laughs and chaotic heckles coming together.
