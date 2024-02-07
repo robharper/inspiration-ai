@@ -1,0 +1,13 @@
+---
+layout: post
+quote_image_description: A maze-like system of pathways leading up to a lustrous and
+  fruitful garden.
+quote_image_url: https://storage.googleapis.com/static.ohmyai.rocks/daily/2024-02-07.jpg
+quote_title: Growth
+tags:
+- office politics
+- poor grammar
+
+---
+
+Even though the office hierarchy may incite tensions among co-workers and create unfavoritisms, it is an opportunity for personal growth.
