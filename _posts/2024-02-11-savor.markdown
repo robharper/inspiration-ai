@@ -1,0 +1,13 @@
+---
+layout: post
+quote_image_description: A mouth-watering hamburger topped with lettuce, tomatoes,
+  and melted cheese, one bite missing and steam rising from it.
+quote_image_url: https://storage.googleapis.com/static.ohmyai.rocks/daily/2024-02-11.jpg
+quote_title: Savor
+tags:
+- hamburgers
+- minimalist
+
+---
+
+Life is like a hamburger, savor every bite.
