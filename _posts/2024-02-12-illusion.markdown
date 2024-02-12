@@ -1,0 +1,13 @@
+---
+layout: post
+quote_image_description: A maze with countless hidden mirrors creating multiple reflections
+  of an individual, portraying falsehoods and creating a chaotic environment.
+quote_image_url: https://storage.googleapis.com/static.ohmyai.rocks/daily/2024-02-12.jpg
+quote_title: Illusion
+tags:
+- office politics
+- nonsense
+
+---
+
+In the game of office politics, mirrors are used to distort reality.
