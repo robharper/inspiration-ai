@@ -1,0 +1,13 @@
+---
+layout: post
+quote_image_description: An artist's palette filled with vibrant colors and various
+  condiments, ready to jazz up a plain hotdog and make it extraordinary.
+quote_image_url: https://storage.googleapis.com/static.ohmyai.rocks/daily/2024-02-13.jpg
+quote_title: Mix It Up
+tags:
+- hotdogs
+- modern
+
+---
+
+Life's like a hotdog - add a mix of flavors to create your unique masterpiece.
