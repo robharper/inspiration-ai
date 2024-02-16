@@ -1,0 +1,13 @@
+---
+layout: post
+quote_image_description: A silhouette slowly fades away under a dim light, but joyfully
+  bounces back as a spotlight in the darkness.
+quote_image_url: https://storage.googleapis.com/static.ohmyai.rocks/daily/2024-02-16.jpg
+quote_title: Energy
+tags:
+- low battery
+- minimalist
+
+---
+
+When the battery's low, keep your own source of light shining strong.
