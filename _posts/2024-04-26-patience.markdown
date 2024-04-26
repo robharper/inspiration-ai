@@ -1,0 +1,13 @@
+---
+layout: post
+quote_image_description: A whimsical scene of a relaxed individual strolling along
+  with dangling mitts playing in scattered rose petals.
+quote_image_url: https://storage.googleapis.com/static.ohmyai.rocks/daily/2024-04-26.jpg
+quote_title: Patience
+tags:
+- waiting
+- tongue-in-cheek
+
+---
+
+Why hurry when you can run late in leisure?
