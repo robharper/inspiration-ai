@@ -1,0 +1,14 @@
+---
+layout: post
+quote_image_description: A group of workers in skirts and suits navigate a winding
+  staircase, some rising higher while others bowing down, illustrating the complexities
+  of office politics.
+quote_image_url: https://storage.googleapis.com/static.ohmyai.rocks/daily/2024-05-04.jpg
+quote_title: Climb
+tags:
+- office politics
+- rhyming
+
+---
+
+In the dance of deals, politics reveal who climbs or stoops, the true ideal.
