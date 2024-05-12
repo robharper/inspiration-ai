@@ -1,0 +1,13 @@
+---
+layout: post
+quote_image_description: Picture a mischievous imp playfully clogging a person's toilet
+  just as they prepare for a crucial event.
+quote_image_url: https://storage.googleapis.com/static.ohmyai.rocks/daily/2024-05-12.jpg
+quote_title: Banter
+tags:
+- toilets
+- sarcastic
+
+---
+
+May your toilet always be clogged on your important day.
