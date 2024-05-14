@@ -1,0 +1,13 @@
+---
+layout: post
+quote_image_description: A serene restroom with a pristine white toilet reflecting
+  the calm surroundings gracefully, inviting a moment of contemplation and solitude.
+quote_image_url: https://storage.googleapis.com/static.ohmyai.rocks/daily/2024-05-14.jpg
+quote_title: Serenity
+tags:
+- toilets
+- minimalist
+
+---
+
+Find peace in the quiet of reflections below porcelain skies.
