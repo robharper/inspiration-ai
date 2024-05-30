@@ -1,0 +1,14 @@
+---
+layout: post
+quote_image_description: A rugged and steep mountain stands before a bold climber
+  with clear paths up its side, showing that with a bit of care, even the most daunting
+  challenges can be overcome.
+quote_image_url: https://storage.googleapis.com/static.ohmyai.rocks/daily/2024-05-30.jpg
+quote_title: Summit
+tags:
+- climbing
+- facecious
+
+---
+
+Life's problems may look topless thinking lightly invites visible ease route
