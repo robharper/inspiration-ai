@@ -1,0 +1,13 @@
+---
+layout: post
+quote_image_description: An oasis in the desert fools the thirsty with its appearance
+  of abundance.
+quote_image_url: https://storage.googleapis.com/static.ohmyai.rocks/daily/2024-06-02.jpg
+quote_title: Mirage
+tags:
+- family
+- contradictory
+
+---
+
+Blood doesn't always make you related, and being related doesn't always make them family.
