@@ -1,0 +1,13 @@
+---
+layout: post
+quote_image_description: An image of a group of friends laughing uncontrollably and
+  freely in a comedy club.
+quote_image_url: https://storage.googleapis.com/static.ohmyai.rocks/daily/2024-06-03.jpg
+quote_title: Laughter
+tags:
+- comedy
+- quirky
+
+---
+
+Life is better when you're laughing like nobody's watching.
